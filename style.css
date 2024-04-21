@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 600; /* Bold */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-ExtraLight.ttf") format("truetype");
+  font-weight: 200; /* Extra Light */
+}
+
+/* custom props */
+:root {
+  --ff-pop: "Poppins", sans-serif;
+  --fw-light: 200;
+  --fw-normal: 400;
+  --fw-bold: 600;
+  --fs-small: 0.9375em; /* guide says to use 15px but rem is better for accessibility and scalability, so default fs is 16px so 15px in rem would be this*/
+  --fs-medium: 1.125em; /* 18px */
+  --fs-large: 1.5em; /* 24px */
+  --fs-very-large: 2.25em; /* 36px */
+  --clr-red: hsl(0, 78%, 62%);
+  --clr-cyan: hsl(180, 62%, 55%);
+  --clr-orange: hsl(34, 97%, 64%);
+  --clr-blue: hsl(212, 86%, 64%);
+  --clr-very-dark-blue: hsl(234, 12%, 34%);
+  --clr-grayish-blue: hsl(229, 6%, 66%);
+  --clr-very-light-gray: hsl(0, 0%, 98%);
+}
+
+/* 
+- Mobile: 375px
+- Desktop: 1440px
+*/
+
+/* css reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0.3rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* end css reset */
+
+body {
+  font-family: var(--ff-pop);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(clr-very-dark-blue);
+}
+
+header {
+  margin-inline: auto;
+  max-width: 530px;
+  text-align: center;
+  margin-block: 4rem;
+}
+
+h1 {
+  font-size: var(--fs-very-large);
+  font-weight: var(--fw-light);
+  color: var(--clr-very-dark-blue);
+}
+
+span {
+  font-weight: var(--fw-bold);
+}
+
+h2 {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-normal);
+  color: var(--clr-grayish-blue);
+}
+
+.wrapper {
+  display: flex;
+  max-width: 1100px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: grid;
+  align-items: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 5px;
+  /* add border size 5 without the color */
+  border-top: 5px solid transparent;
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.card > h3 {
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-bold);
+  color: var(--clr-very-dark-blue);
+  padding-bottom: 1rem;
+}
+
+.card > p {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-normal);
+  color: var(--clr-grayish-blue);
+  padding-bottom: 2rem;
+}
+
+.card > img {
+  align-self: flex-end;
+}
+
+.top-border-cyan {
+  border-top: 5px solid var(--clr-cyan);
+}
+
+.top-border-orange {
+  border-top: 5px solid var(--clr-orange);
+}
+
+.top-border-blue {
+  border-top: 5px solid var(--clr-blue);
+}
+
+.top-border-red {
+  border-top: 5px solid var(--clr-red);
+}
+
+/* mediaquery to add min width from breakpoints */
+@media screen and (max-width: 900px) {
+  /* Add your CSS code here for the mobile breakpoint */
+  .wrapper {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .card {
+    max-width: 430px;
+  }
+}
